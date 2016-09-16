@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include "stringutils.h"
 
-void get_lines();
-int print_dollar();
+void getLines();
+int printDollar();
 void changeDelim(char newDlim);
 void checkCommand(char **vec);
 
@@ -12,11 +12,10 @@ char delimiter = ' ';
 
 int main(void){
   //Read in from the keyboard.
-  get_lines();
-  free(vector);
+  getLines();
 }
 
-void get_lines(){
+void getLines(){
   int exit = 0;
   char buffer[4096];
   
@@ -24,7 +23,7 @@ void get_lines(){
   puts("To set a delimiter type SET and a single character");
   puts("Example: SET * ");
   //Print $ sign, get user input and check if the exit flag is on
-  while(exit ==0 && print_dollar() && fgets(buffer, 4020, stdin) != NULL){
+  while(exit ==0 && printDollar() && fgets(buffer, 4096 , stdin) != NULL){
     
     vector = mytoc(buffer, delimiter);
     //Check for exit
@@ -32,13 +31,13 @@ void get_lines(){
       exit= isEqual(*vector, "exit");
     //Check if the user wants to set a delimiter
     checkCommand(vector);
-    printTokens(vector); 
-    
+    printTokens(vector);
+    freeVector(vector);
   }
 }
 
 //Helper methods 
-int print_dollar(){
+int printDollar(){
   printf("$ ");
   return 1;
 }
