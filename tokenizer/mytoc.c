@@ -7,7 +7,7 @@ char ** mytoc(char *str, char delim){
   char *pStr, *tokStr;
 
   //Keep count of size and current token or character location
-  int vectorSize = 0, stringSize = 0, charLocation = 0;
+  int vectorSize = 0, charLocation = 0;
   int tokenSize = 0, token = 0;
 
   pStr = str;
@@ -42,10 +42,10 @@ char ** mytoc(char *str, char delim){
     }
     //look to see if the current char is not a delimiter and check the
     //next char to see if its a delimiter or end of file to copy the token
-    if( *tokStr != delim && ( *(tokStr+1) == delim || *(tokStr+1) == endOfFile)){
-      stringSize = charLocation - beginingChar + 1;
-      *(vector + token) = (char *)malloc(stringSize);
-      *(vector + token) = copyToken(beginingChar, stringSize, str);
+    if((firstChar && *tokStr != delim) && ( *(tokStr+1) == delim || *(tokStr+1) == endOfFile)){
+      tokenSize = charLocation - beginingChar + 1;
+      *(vector + token) = (char *)malloc(tokenSize);
+      *(vector + token) = copyToken(beginingChar, tokenSize, str);
       firstChar = 0;
       token++;
     }

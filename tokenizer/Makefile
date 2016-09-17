@@ -16,4 +16,4 @@ tokenizer:tokenizer.o mytoc.o
 	gcc -o tokenizer tokenizer.o mytoc.o
 
 clean:
-	find . -type f -not -name '*.h' -not -name '*.c' -not -name 'Makefile' -not -name 'makefile' | xargs rm
+	find . -type f -not -name '*.h' -not -name '*.c' -not -name 'Makefile' -not -name 'makefile' -not -name '*.txt'| xargs rm
