@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "stringutils.h"
+#include "mytoc.h"
 
 void getLines();
 int printDollar();
@@ -18,7 +18,8 @@ int main(void){
 void getLines(){
   int exit = 0;
   char buffer[4096];
-  
+
+  printf("\n\n");
   puts("Enter one line at time; Type exit  when done.");
   puts("To set a delimiter type SET and a single character");
   puts("Example: SET * ");
